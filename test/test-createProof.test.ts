@@ -21,7 +21,7 @@ import {
   type Profile,
   type W3CCredential,
 } from "@0xpolygonid/js-sdk";
-import { describe, expect, test } from "vitest";
+import { expect } from "chai";
 
 import { testIssuerKeyPair, testKeyPair } from "./testKeys";
 import {
@@ -36,7 +36,7 @@ const POLYGON_ID_CONTRACT = "0x134B1BE34911E39A8397ec6289782989729807a4";
 const MUMBAI_RPC_URL = "https://rpc.ankr.com/polygon_mumbai";
 
 describe("Test createProof", () => {
-  test.only("create Proof", async () => {
+  it("create Proof", async () => {
     // Create key pairs for user and issuer
     const obj: { [key: string]: number } = testKeyPair.data.privateKey;
     const arr = Object.keys(obj).map((key) => obj[key] as number);
@@ -156,5 +156,5 @@ describe("Test createProof", () => {
     );
     console.log("PROOF", proof);
     expect(proof);
-  }, 20000);
+  });
 });
